@@ -1,0 +1,23 @@
+.card-button {
+  width: 20em;
+}
+
+.title { 
+  grid-column: 2;
+}
+
+.back-button {
+  margin-left: auto; 
+  margin-right: 0;
+}
+
+.player-box {
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.rps-btn {
+  padding: 0;
+}
