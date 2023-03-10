@@ -11,16 +11,16 @@ const PlayCPU = () => {
       <div className="row align-items-md-stretch">
         <div className="col-md-4">
           <CardButton linkTo="/play-cpu/beginner"
-            icon={<GiPerspectiveDiceSixFacesRandom />}
+            icon={<BsFillPersonFill />}
             title="Beginner"
-            subtitle="Random strategy"
+            subtitle="Predictable human-like strategy"
           />
         </div>
         <div className="col-md-4">
           <CardButton linkTo="/play-cpu/intermediate"
-            icon={<BsFillPersonFill />}
+            icon={<GiPerspectiveDiceSixFacesRandom />}
             title="Intermediate"
-            subtitle="Human-like strategy"
+            subtitle="Random strategy"
           />
         </div>
         <div className="col-md-4">
