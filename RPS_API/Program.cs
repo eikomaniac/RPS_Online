@@ -42,18 +42,7 @@ app.MapPost("/play", async (UserInput userInput, RpsDb db) =>
       throw new ArgumentException("Invalid CPU difficulty. Must be 'beginner', 'intermediate', or 'advanced'");
   }
 
-  // Determine result via numerical representation (possible to cyclical nature of RPS)
-  int userOptionIdx = GameLogic.GetOptionIndex(userInput.UserOption);
-  int cpuOptionIdx = GameLogic.GetOptionIndex(cpuOption);
-
-  int diff = (userOptionIdx - cpuOptionIdx + 3) % 3;
-
-  string result = diff switch {
-    0 => "draw",
-    1 => "win",
-    2 => "loss",
-    _ => throw new InvalidOperationException("Unknown error occurred")
-  };
+  string result = GameLogic.determineResult(userInput.UserOption, cpuOption);
 
   Match match = new Match
   {
@@ -96,10 +85,27 @@ app.MapGet("/stats/{userId}", async (int userId, RpsDb db) =>
     MatchHistory = await db.MatchHistory
       .Where(x => x.UserId == userId)
       .OrderByDescending(x => x.MatchId)
+      .Take(150)
       .ToListAsync()
   };
 
   return stats;
+});
+
+
+app.MapGet("/spectate", (RpsDb db) =>
+{
+  string ai1Option = GameLogic.IntermediateAI();
+  string ai2Option = GameLogic.IntermediateAI();
+  string result = GameLogic.determineResult(ai1Option, ai2Option);
+
+  Spectate spectate = new Spectate
+  {
+    AI1Option = ai1Option,
+    AI2Option = ai2Option,
+    Result = result
+  };
+  return Task.FromResult(spectate);
 });
 
 app.Run();

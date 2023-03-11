@@ -7,6 +7,7 @@ interface RPSButtonProps {
   option: string;
   difficulty: string;
   setSession: Function;
+  loadingCPU: boolean;
   setLoadingCPU: Function,
   setLastResult: Function
 }
@@ -19,7 +20,7 @@ interface Session {
   cpuOption: string | null;
 }
 
-const RPSButton: FC<RPSButtonProps> = ({ icon, option, difficulty, setSession, setLoadingCPU, setLastResult }) => {  
+const RPSButton: FC<RPSButtonProps> = ({ icon, option, difficulty, setSession, loadingCPU, setLoadingCPU, setLastResult }) => {  
   const determineWinner = (userOption: string | null, cpuOption: string | null) => {
     if (userOption == null || cpuOption == null ) return;
     const options = ["rock", "paper", "scissors"];
@@ -66,7 +67,6 @@ const RPSButton: FC<RPSButtonProps> = ({ icon, option, difficulty, setSession, s
           cpuOption: res.cpuOption
         }))
         determineWinner(option, res.cpuOption);
-        setLoadingCPU(false);
         switch (res.result) {
           case "win":
             setSession((s: Session) => ({
@@ -90,13 +90,15 @@ const RPSButton: FC<RPSButtonProps> = ({ icon, option, difficulty, setSession, s
       })
       .catch((error: Error) => {
         console.error('Error:', error);
+      })
+      .finally(() => {
         setLoadingCPU(false);
       });
   }
 
   return (
     <button
-      className="rps-btn btn btn-dark"
+      className={`rps-btn btn btn-dark ${loadingCPU ? "disabled" : ""}`}
       onClick={requestCPUresponse}>
         <IconContext.Provider value={{style: { width:100, height:100}}}>
           {icon}

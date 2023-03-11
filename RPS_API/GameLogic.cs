@@ -99,6 +99,24 @@ internal static class GameLogic
     }
   }
 
+  public static string determineResult(string userInput, string cpuOption) {
+    // Determine result via numerical representation (possible to cyclical nature of RPS)
+    int userOptionIdx = GameLogic.GetOptionIndex(userInput);
+    int cpuOptionIdx = GameLogic.GetOptionIndex(cpuOption);
+
+    int diff = (userOptionIdx - cpuOptionIdx + 3) % 3;
+
+    string result = diff switch {
+      0 => "draw",
+      1 => "win",
+      2 => "loss",
+      _ => throw new InvalidOperationException("Unknown error occurred")
+    };
+
+    return result;
+  }
+
+
   public static int GetOptionIndex(string option)
   {
     switch (option)

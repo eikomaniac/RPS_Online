@@ -4,15 +4,13 @@ import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa
 import RPSButton from './RPSButton';
 import { IconContext } from 'react-icons';
 import { AiFillQuestionCircle } from 'react-icons/ai';
+import { capitalize } from "../Utilities";
 
 interface RPSGameProps {
   difficulty: string;
 }
 
 const RPSGame: FC<RPSGameProps> = ({ difficulty }) => {
-  const capitalize = (str: any) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
 
   const [session, setSession] = useState({
     wins: 0,
@@ -56,9 +54,9 @@ const RPSGame: FC<RPSGameProps> = ({ difficulty }) => {
             </div>
             <h2 className="align-self-end w-100">(You)</h2>
             <div className="align-self-end w-100">
-              <RPSButton icon={<FaRegHandRock />} option="rock" difficulty={difficulty} setSession={setSession} setLoadingCPU={setLoadingCPU} setLastResult={setLastResult} />
-              <RPSButton icon={<FaRegHandPaper />} option="paper" difficulty={difficulty} setSession={setSession} setLoadingCPU={setLoadingCPU} setLastResult={setLastResult} />
-              <RPSButton icon={<FaRegHandScissors />} option="scissors" difficulty={difficulty} setSession={setSession} setLoadingCPU={setLoadingCPU} setLastResult={setLastResult} />
+              <RPSButton icon={<FaRegHandRock />} option="rock" difficulty={difficulty} setSession={setSession} loadingCPU={loadingCPU} setLoadingCPU={setLoadingCPU} setLastResult={setLastResult} />
+              <RPSButton icon={<FaRegHandPaper />} option="paper" difficulty={difficulty} setSession={setSession} loadingCPU={loadingCPU} setLoadingCPU={setLoadingCPU} setLastResult={setLastResult} />
+              <RPSButton icon={<FaRegHandScissors />} option="scissors" difficulty={difficulty} setSession={setSession} loadingCPU={loadingCPU} setLoadingCPU={setLoadingCPU} setLastResult={setLastResult} />
             </div>
           </div>
         </div>

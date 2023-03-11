@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import StatsTable from "../components/StatsTable";
+import MatchHistory from "../components/MatchHistory";
 import axios from 'axios';
 
 interface StatsType {
@@ -43,7 +44,8 @@ const Stats = () => {
 
   return (
     <div className="container d-flex flex-column align-items-center mt-5">
-      <h1 className="display-5 fw-bold mb-5">Player Statistics</h1>
+      <h1 className="display-5 fw-bold">Player Statistics</h1>
+      <p className="text-secondary mb-5">Winrate = (Wins + 0.5×Draws)÷(Total Games)×100</p>
 
       <h2>Stats vs. <b>Beginner</b></h2>
       <StatsTable stats={response.beginnerStats} />
@@ -52,21 +54,7 @@ const Stats = () => {
       <h2>Stats vs. <b>Advanced</b></h2>
       <StatsTable stats={response.advancedStats} />
       <h2>Match History</h2>
-      <nav>
-        <ul className="pagination">
-          <li className="page-item disabled">
-            <span className="page-link">Previous</span>
-          </li>
-          <li className="page-item"><button className="page-link" onClick={() => console.log()}>1</ button></li>
-          <li className="page-item active" aria-current="page">
-            <span className="page-link">2</span>
-          </li>
-          <li className="page-item"><button className="page-link" onClick={() => console.log()}>3</button></li>
-          <li className="page-item">
-            <button className="page-link" onClick={() => console.log('hi')}>Next</button>
-          </li>
-        </ul>
-      </nav>
+      <MatchHistory matches={response.matchHistory} />
     </div>
   );
 }
