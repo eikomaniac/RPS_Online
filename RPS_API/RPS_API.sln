@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1705.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPS_API", "RPS_API.csproj", "{C636C251-C474-48B9-B8FA-A8F539FBF38D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPS_API_UnitTests", "..\RPS_API_UnitTests\RPS_API_UnitTests.csproj", "{2AED928F-9FD4-4DC9-BFCC-4B399EE650AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C636C251-C474-48B9-B8FA-A8F539FBF38D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C636C251-C474-48B9-B8FA-A8F539FBF38D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C636C251-C474-48B9-B8FA-A8F539FBF38D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AED928F-9FD4-4DC9-BFCC-4B399EE650AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AED928F-9FD4-4DC9-BFCC-4B399EE650AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AED928F-9FD4-4DC9-BFCC-4B399EE650AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AED928F-9FD4-4DC9-BFCC-4B399EE650AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

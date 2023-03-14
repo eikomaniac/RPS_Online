@@ -89,7 +89,7 @@ const RPSButton: FC<RPSButtonProps> = ({ icon, option, difficulty, setSession, l
         }
       })
       .catch((error: Error) => {
-        console.error('Error:', error);
+        console.error(error);
       })
       .finally(() => {
         setLoadingCPU(false);

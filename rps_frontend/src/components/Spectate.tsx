@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import BackButton from '../components/BackButton';
-import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
-import { IconContext } from 'react-icons';
-import { AiFillQuestionCircle } from 'react-icons/ai';
+import AiBox from '../components/AiBox';
 import axios from "axios";
 
 const Spectate = () => {
@@ -17,19 +15,6 @@ const Spectate = () => {
   const [ai2, setAi2] = useState(initStats);
 
   const [lastResult, setLastResult] = useState("");
-
-  const showOption = (option: string | null) => {
-    switch (option) {
-      case "rock":
-        return <FaRegHandRock />
-      case "paper":
-        return <FaRegHandPaper />
-      case "scissors":
-        return <FaRegHandScissors />
-      default:
-        return <AiFillQuestionCircle />
-    }
-  }
 
   const spectateCPU = () => {
     setLoadingCPU(true);
@@ -92,18 +77,7 @@ const Spectate = () => {
         <h1 className="display-5 fw-bold mb-5 title">Spectate</h1>
       </div>
       <div className="row">
-        <div className="col-5">
-          <div className="player-box d-flex flex-column">
-            <div className="flex-grow-1">
-              <IconContext.Provider value={{className: "mt-5 w-100 align-self-start", style: { height: 150 }}}>
-                {showOption(ai1.option)}
-              </IconContext.Provider>
-            </div>
-            <h2 className="mb-5">AI 1</h2>
-            <h2 className="">{ai1.wins}-{ai1.draws}-{ai1.losses}</h2>
-            <h4 className="text-secondary mt-n5">W/D/L</h4>
-          </div>
-        </div>
+        <AiBox aiSession={ai1} />
         <div className="col-2 d-flex flex-column justify-content-center align-items-center">
           <h2>{lastResult === "win" ? "AI 1 Wins" : lastResult === "loss" ? "AI 2 Wins" : "Draw" }</h2>
           <h1>VS</h1>
@@ -114,18 +88,7 @@ const Spectate = () => {
             )}
           </button>
         </div>
-        <div className="col-5">
-          <div className="player-box d-flex flex-column">
-            <div className="flex-grow-1">
-              <IconContext.Provider value={{className: "mt-5 w-100 align-self-start", style: { height: 150 }}}>
-                {showOption(ai2.option)}
-              </IconContext.Provider>
-            </div>
-            <h2 className="mb-5">AI 2</h2>
-            <h2 className="">{ai2.wins}-{ai2.draws}-{ai2.losses}</h2>
-            <h4 className="text-secondary mt-n5">W/D/L</h4>
-          </div>
-        </div>
+        <AiBox aiSession={ai2} />
       </div>
     </div>
   )};

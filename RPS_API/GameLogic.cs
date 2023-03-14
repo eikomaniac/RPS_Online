@@ -1,4 +1,4 @@
-internal static class GameLogic
+public static class GameLogic
 {
   public static string BeginnerAI(int userId, RpsDb db)
   {
