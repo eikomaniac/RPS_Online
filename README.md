@@ -8,6 +8,9 @@ Front-end coded in React, TypeScript.
 
 Back-end coded in ASP.NET Core (C#). Simple REST API with an in-memory database.
 
+### Sidenote
+The `userId` value of the client is hardcoded as `1` but the field was added to the database schema anyway in order to make the code future-proof, for example if a user login system were to be implemented.
+
 ## Running the server
 ### Front-end
 To run the frontend server, run `yarn run start` in the `rps-front-end` directory.
@@ -16,7 +19,6 @@ To run the backend server, run `dotnet watch` in the `RPS_API` directory.
 
 
 ## Running tests
-### Front-end
-To run the Jest tests, run `yarn test` in the `rps-front-end` directory.
-### Back-end
-To run the NUnit tests, run `dotnet build` in the `RPS_API` directory.
+To run the front-end Jest tests, run `yarn test` in the `rps-front-end` directory.
+
+To run the back-end NUnit tests, run `dotnet build` in the `RPS_API` directory.
