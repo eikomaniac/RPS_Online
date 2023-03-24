@@ -22,7 +22,7 @@ To run the frontend server, run `yarn run start` in the `rps-front-end` director
 
 ### Back-end
 
-To run the backend server, run `dotnet watch` in the `RPS_API` directory.
+To run the backend server, run `dotnet run` in the `RPS_API` directory.
 
 ## Running tests
 
