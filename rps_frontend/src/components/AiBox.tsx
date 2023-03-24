@@ -1,9 +1,15 @@
+import { FC } from "react";
 import { IconContext } from "react-icons";
 import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
 import { AiFillQuestionCircle } from 'react-icons/ai';
 
-const AiBox = (aiSession: any) => {
-  const { wins, draws, losses, option } = aiSession;
+interface AiBoxProps {
+  session: any;
+  aiNum: number;
+}
+
+const AiBox: FC<AiBoxProps> = ({ session, aiNum }) => {
+  let { wins, draws, losses, option } = session;
 
   const showOption = (option: string | null) => {
     switch (option) {
@@ -26,7 +32,7 @@ const AiBox = (aiSession: any) => {
             {showOption(option)}
           </IconContext.Provider>
         </div>
-        <h2 className="mb-5">AI 2</h2>
+        <h2 className="mb-5">AI {aiNum}</h2>
         <h2 className="">{wins}-{draws}-{losses}</h2>
         <h4 className="text-secondary mt-n5">W/D/L</h4>
       </div>

@@ -20,7 +20,7 @@ interface Session {
   cpuOption: string | null;
 }
 
-const RPSButton: FC<RPSButtonProps> = ({ icon, option, difficulty, setSession, loadingCPU, setLoadingCPU, setLastResult }) => {  
+const RPSButton: FC<RPSButtonProps> = ({ icon, option, difficulty, setSession, loadingCPU, setLoadingCPU, setLastResult }) => {
   const determineWinner = (userOption: string | null, cpuOption: string | null) => {
     if (userOption == null || cpuOption == null ) return;
     const options = ["rock", "paper", "scissors"];
@@ -54,11 +54,11 @@ const RPSButton: FC<RPSButtonProps> = ({ icon, option, difficulty, setSession, l
       cpuDifficulty: difficulty,
       userOption: option,
     };
-    
+
     const headers = {
       'Content-Type': 'application/json'
     };
-    
+
     axios.post(`${process.env.REACT_APP_API_URL}/play`, data, { headers })
       .then((response: AxiosResponse) => {
         const res = response.data;

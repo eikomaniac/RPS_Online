@@ -2,12 +2,12 @@
   width: 20em;
 }
 
-.title { 
+.title {
   grid-column: 2;
 }
 
 .back-button {
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: 0;
 }
 

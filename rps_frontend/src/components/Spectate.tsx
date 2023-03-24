@@ -8,7 +8,7 @@ const Spectate = () => {
     wins: 0,
     draws: 0,
     losses: 0,
-    option: null
+    option: null,
   };
 
   const [ai1, setAi1] = useState(initStats);
@@ -38,7 +38,7 @@ const Spectate = () => {
           }));
           setAi2((s: any) => ({
             ...s,
-            draws: s.losses + 1
+            draws: s.draws + 1
           }));
         } else if (res.result === "win") {
           setAi1((s: any) => ({
@@ -77,7 +77,7 @@ const Spectate = () => {
         <h1 className="display-5 fw-bold mb-5 title">Spectate</h1>
       </div>
       <div className="row">
-        <AiBox aiSession={ai1} />
+        <AiBox session={ai1} aiNum={1} />
         <div className="col-2 d-flex flex-column justify-content-center align-items-center">
           <h2>{lastResult === "win" ? "AI 1 Wins" : lastResult === "loss" ? "AI 2 Wins" : "Draw" }</h2>
           <h1>VS</h1>
@@ -88,7 +88,7 @@ const Spectate = () => {
             )}
           </button>
         </div>
-        <AiBox aiSession={ai2} />
+        <AiBox session={ai2} aiNum={2} />
       </div>
     </div>
   )};

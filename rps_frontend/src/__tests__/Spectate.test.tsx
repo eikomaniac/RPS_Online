@@ -32,5 +32,5 @@ describe('Spectate', () => {
     });
     expect(axios.get).toHaveBeenCalledTimes(1);
     expect(axios.get).toHaveBeenCalledWith(`${process.env.REACT_APP_API_URL}/spectate`);
-  });  
+  });
 });
